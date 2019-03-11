@@ -11,6 +11,6 @@ FROM microsoft/dotnet:2.2-aspnetcore-runtime AS runtime
 WORKDIR /app
 COPY --from=build /app/netcore2heroku/out ./
 
-RUN echo "ASPNETCORE_URLS=http://0.0.0.0:\$PORT\nDOTNET_RUNNING_IN_CONTAINER=true" > /app/setup_heroku_env.sh && chmod +x /app/setup_heroku_env.sh
+RUN echo "ASPNETCORE_URLS=http://0.0.0.0:\$PORT DOTNET_RUNNING_IN_CONTAINER=true" > /app/setup_heroku_env.sh && chmod +x /app/setup_heroku_env.sh
 
 CMD /bin/bash -c "source /app/setup_heroku_env.sh && dotnet netcore2heroku.dll"
