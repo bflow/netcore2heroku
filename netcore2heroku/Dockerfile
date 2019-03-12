@@ -22,3 +22,4 @@ RUN echo "ASPNETCORE_URLS=http://0.0.0.0:\$PORT DOTNET_RUNNING_IN_CONTAINER=true
 CMD /bin/bash -c "source /app/setup_heroku_env.sh && dotnet netcore2heroku.dll"
 
 #restart Docker after booting Windows
+#added buildpack for auto-Git deployment (but why if Docker?)
